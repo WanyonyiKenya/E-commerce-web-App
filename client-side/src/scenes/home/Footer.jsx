@@ -57,19 +57,14 @@ const Footer = () => {
         </Box>
 
         <Box width="clamp(20%,25%,30%)">
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            mb="30px"
-          >
+          <Typography variant="h4" fontWeight="bold" mb="30px">
             Contact us
           </Typography>
-       
+
           <Typography mb="30px">Along Kang'undo Road</Typography>
           <Typography mb="30px">Email:KrugerJ@gmail.com</Typography>
           <Typography mb="30px">Tel: (020)-034-567</Typography>
         </Box>
-        
       </Box>
     </Box>
   );

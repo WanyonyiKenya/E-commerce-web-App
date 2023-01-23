@@ -113,9 +113,8 @@ const CartMenu = () => {
                           <AddIcon />
                         </IconButton>
                       </Box>
-                                {/* item prices */}
+                      {/* item prices */}
                       <Typography>Ksh. {item.attributes.price}</Typography>
-
                     </Flexed>
                   </Box>
                 </Flexed>
@@ -124,25 +123,27 @@ const CartMenu = () => {
             ))}
           </Box>
           {/* subtotal,price and checkout */}
-          <Box m ='20px 0'>
-            <Flexed m = '20px 0'>
-                <Typography fontWeight = 'bold'>SUBTOTAL</Typography>
-                <Typography fontWeight = 'bold'>Ksh. {totalPrice}</Typography>
+          <Box m="20px 0">
+            <Flexed m="20px 0">
+              <Typography fontWeight="bold">SUBTOTAL</Typography>
+              <Typography fontWeight="bold">Ksh. {totalPrice}</Typography>
             </Flexed>
             <Button
-                sx = {{
-                    backgroundColor: shades.primary[400],
-                    color:'white',
-                    borderRadius:0,
-                    minWidth:'100%',
-                    padding:'20px 40px',
-                    m: '20px 0'
-                }}
-                onClick = { ()=> {
-                    navigate('/checkout')
-                    dispatch(setCartOpen({}))
-                }}
-            >CheckOut</Button>
+              sx={{
+                backgroundColor: shades.primary[400],
+                color: "white",
+                borderRadius: 0,
+                minWidth: "100%",
+                padding: "20px 40px",
+                m: "20px 0",
+              }}
+              onClick={() => {
+                navigate("/checkout");
+                dispatch(setCartOpen({}));
+              }}
+            >
+              CheckOut
+            </Button>
           </Box>
         </Box>
       </Box>

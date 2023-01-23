@@ -26,7 +26,7 @@ const ItemDetail = () => {
       ` http://localhost:1337/api/items/${itemId}?populate=image`,
       { method: "GET" }
     );
-    const item = await response.json(); 
+    const item = await response.json();
     setItem(item.data);
   };
   const getRelatedItems = async () => {
@@ -63,7 +63,7 @@ const ItemDetail = () => {
           <Box m="65px 0 25px 0 ">
             <Typography variant="h3">{item?.attributes?.name}</Typography>
             <Typography>Ksh. {item?.attributes?.price}</Typography>
-            <Typography sx={{ mt: "20px" }}>
+            <Typography sx={{ marginTop: "20px" }}>
               {item?.attributes?.longDescription}
             </Typography>
           </Box>
@@ -79,75 +79,71 @@ const ItemDetail = () => {
               <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
                 <RemoveIcon />
               </IconButton>
-              <Typography sx= {{p: '0 5px'}}>{count}</Typography>
+              <Typography sx={{ p: "0 5px" }}>{count}</Typography>
               <IconButton onClick={() => setCount(count + 1)}>
                 <AddIcon />
               </IconButton>
             </Box>
-            <Button sx= {{
-              backgroundColor: '#222222',
-              color: 'white',
-              borderRadius : 0,
-              minWidth:'150px',
-              padding: '10px 40px',
-            }}
-             onClick= {()=>dispatch(addToCart({item: {...item, count}}))}
+            <Button
+              sx={{
+                backgroundColor: "#222222",
+                color: "white",
+                borderRadius: 0,
+                minWidth: "150px",
+                padding: "10px 40px",
+              }}
+              onClick={() => dispatch(addToCart({ item: { ...item, count } }))}
             >
               Add To Cart
             </Button>
           </Box>
 
           <Box>
-            <Box m ='20px 0 5px 0 ' display = 'flex'>
+            <Box m="20px 0 5px 0 " display="flex">
               <FavoriteBorderOutlinedIcon />
-              <Typography sx= {{ml:'5px'}}>Add to WishList</Typography>
+              <Typography sx={{ ml: "5px" }}>Add to WishList</Typography>
             </Box>
-            <Typography>CATEGORIES: 
-              {
-                item?.attributes?.category
+            <Typography>
+              CATEGORIES:
+              {item?.attributes?.category
                 .replace(/([A-Z])/g, " $1")
-                .replace(/^./, (str) => str.toUpperCase())
-              }
+                .replace(/^./, (str) => str.toUpperCase())}
             </Typography>
           </Box>
         </Box>
       </Box>
 
       {/* description and reviews section */}
-      <Box m = '20px 0'>
-        <Tabs value = {value} onChange = {handleChange}>
-          <Tab label='DESCRIPTION' value = 'description' />
-          <Tab label = 'REVIEWS' value = 'reviews' />
+      <Box m="20px 0">
+        <Tabs value={value} onChange={handleChange}>
+          <Tab label="DESCRIPTION" value="description" />
+          <Tab label="REVIEWS" value="reviews" />
         </Tabs>
       </Box>
-      <Box display ='flex' flexWrap = 'wrap' gap ='15px'>
-              {value === "description" && (
-                <div>{item?.attributes?.longDescription}</div>
-              )}
-              {value === 'reviews' && <div>reviews</div>}
+      <Box display="flex" flexWrap="wrap" gap="15px">
+        {value === "description" && (
+          <div>{item?.attributes?.longDescription}</div>
+        )}
+        {value === "reviews" && <div>reviews</div>}
       </Box>
       {/* related items */}
-      <Box mt= '50px' width = '100%'>
-        <Typography variant="h3" fontWeight='bold'>
+      <Box mt="50px" width="100%">
+        <Typography variant="h3" fontWeight="bold">
           Related Products
         </Typography>
         <Box
-          mt= '20%'
-          display= 'flex'
-          flexWrap= 'wrap'
-          columnGap = '1.33%'
-          justifyContent = 'space-between'
+          mt="20%"
+          display="flex"
+          flexWrap="wrap"
+          columnGap="1.33%"
+          justifyContent="space-between"
         >
-          {
-            
-            
-            relatedItems
-            .slice(0,5)
-            .filter(nitem => nitem.id !== item?.id)
-            .map((item, i)=>(
-              <Item key = {`${item.name}-${item.id}`} item = {item} />
-            ))
-          }
+          {relatedItems
+            .slice(0, 5)
+            .filter((nitem) => nitem.id !== item?.id)
+            .map((item, i) => (
+              <Item key={`${item.name}-${item.id}`} item={item} />
+            ))}
         </Box>
       </Box>
     </Box>

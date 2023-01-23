@@ -14,7 +14,7 @@ import { setCartOpen } from "../../state";
 const Nav = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const cart = useSelector((state)=>state.cart.cart)
+  const cart = useSelector((state) => state.cart.cart);
   return (
     <Box
       display="flex"
@@ -29,55 +29,58 @@ const Nav = () => {
       zIndex="1"
     >
       <Box
-       width = '80%'
-       margin = 'auto'
-       display = 'flex'
-       justifyContent = 'space-between'
-       alignItems = 'center'
+        width="80%"
+        margin="auto"
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
       >
         <Box
-          onClick = {()=>navigate("/")}
-          sx = {{
-            '&:hover': {cursor:'pointer'}
+          onClick={() => navigate("/")}
+          sx={{
+            "&:hover": { cursor: "pointer" },
           }}
-          color = {shades.secondary[500]}
+          color={shades.secondary[500]}
         >
           <Typography variant="h3">Shopify</Typography>
         </Box>
         <Box
-          display = 'flex'
-          jusifyContent = 'space-between'
-          columnGap = '20px'
-          zIndex= '2'
+          display="flex"
+          jusifyContent="space-between"
+          columnGap="20px"
+          zIndex="2"
         >
-          <IconButton sx = {{color: "black"}}> 
-            <SearchOutlined/>
+          <IconButton sx={{ color: "black" }}>
+            <SearchOutlined />
           </IconButton>
-          <IconButton sx = {{color: "black"}}>
-            <PersonOutline/>
+          <IconButton sx={{ color: "black" }}>
+            <PersonOutline />
           </IconButton>
 
           <Badge
-            badgeContent = {cart.length}
-            color = "secondary"
-            invisible = {cart.length === 0 }
-            sx = {{
-              '& .MuiBadge-badge': {
-                right:5,
+            badgeContent={cart.length}
+            color="secondary"
+            invisible={cart.length === 0}
+            sx={{
+              "& .MuiBadge-badge": {
+                right: 5,
                 top: 5,
-                padding:'0 4px',
-                height: '14px',
-                minWidth: '13px'
-              }
+                padding: "0 4px",
+                height: "14px",
+                minWidth: "13px",
+              },
             }}
           >
-            <IconButton onClick={()=>dispatch(setCartOpen({}))} sx = {{color: "black"}}>
-               <ShoppingBagOutlined/>
+            <IconButton
+              onClick={() => dispatch(setCartOpen({}))}
+              sx={{ color: "black" }}
+            >
+              <ShoppingBagOutlined />
             </IconButton>
           </Badge>
-          
-          <IconButton sx = {{color: "black"}}>
-            <MenuOutlined/>
+
+          <IconButton sx={{ color: "black" }}>
+            <MenuOutlined />
           </IconButton>
         </Box>
       </Box>
