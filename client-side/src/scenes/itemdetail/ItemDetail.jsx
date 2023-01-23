@@ -6,7 +6,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import { shades } from "../../theme";
 import { addToCart } from "../../state";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Item from "../../components/Item";
 
 const ItemDetail = () => {
@@ -16,6 +16,8 @@ const ItemDetail = () => {
   const [count, setCount] = useState(1);
   const [item, setItem] = useState(null);
   const [relatedItems, setRelatedItems] = useState([]);
+
+  const navigate = useNavigate();
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -57,7 +59,13 @@ const ItemDetail = () => {
         {/* actions,description etc */}
         <Box flex="1 1 50%" mb="40px">
           <Box display="flex" justifyContent="space-between">
-            <Box>Home/Item</Box>
+            <Box
+              onClick={() => navigate("/")}
+              sx={{
+                "&:hover": { cursor: "pointer" },
+              }}
+              color={shades.secondary[500]}
+            >Home/Item</Box>
             <Box>Prev Next</Box>
           </Box>
           <Box m="65px 0 25px 0 ">
