@@ -21,7 +21,7 @@ const initialValues = {
     country:'',
     street1:'',
     street2:'',
-    city:'',
+    city:'',  
     state:'',
     zipCode:''
     
