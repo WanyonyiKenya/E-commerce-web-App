@@ -42,7 +42,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
                 line_items: lineItems
             })
 
-            //creating the item in the backend
+            //creating the item in the backend  
 
             await strapi.service("api::order.order").create({
                 data: {userName, products, stripeSessionId:session.id}

@@ -26,7 +26,7 @@ const ItemDetail = () => {
       ` http://localhost:1337/api/items/${itemId}?populate=image`,
       { method: "GET" }
     );
-    const item = await response.json();
+    const item = await response.json(); 
     setItem(item.data);
   };
   const getRelatedItems = async () => {

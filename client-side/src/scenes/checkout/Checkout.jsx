@@ -16,7 +16,7 @@ const stripePromise =  loadStripe (
 )
 const initialValues = {
   billingAddress:{
-    firstName:'',
+    firstName:'', 
     lastName:'',
     country:'',
     street1:'',
@@ -27,7 +27,7 @@ const initialValues = {
     
   },
   shippingAddress:{
-    isSameAddress:true,
+    isSameAddress: true,
     firstName:'',
     lastName:'',
     country:'',
